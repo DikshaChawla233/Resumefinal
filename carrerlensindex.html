@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>Career Lens | Resume & Career Match</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-icon">CL</span>
+      <span>Career<span class="brand-light">Lens</span></span>
+    </a>
+    <span class="status-pill"><span class="status-dot"></span> AI Career Platform</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">YOUR NEXT CAREER MOVE STARTS HERE</div>
+      <h1>Find your <span>career match.</span></h1>
+      <p>Connect talent with opportunity. Explore jobs, compare skills, and discover what you need to move forward.</p>
+    </section>
+
+    <nav class="tabs" aria-label="Application mode">
+      <button class="tab active" type="button" data-panel="student-panel">Student · Analyze Resume</button>
+      <button class="tab" type="button" data-panel="hr-panel">HR · Post a Job</button>
+    </nav>
+
+    <section id="student-panel" class="panel">
+      <div class="section-heading">
+        <div>
+          <div class="step-label">01 / STUDENT WORKSPACE</div>
+          <h2>Analyze your resume</h2>
+          <p>Choose a role and upload your resume to review your skill match.</p>
+        </div>
+        <span class="heading-icon">↗</span>
+      </div>
+
+      <form id="analyze-form">
+        <label for="job-select">Target job</label>
+        <select id="job-select" required>
+          <option value="">Loading available jobs…</option>
+        </select>
+
+        <div id="job-details" class="job-details hidden"></div>
+
+        <label for="resume-file">Upload your resume</label>
+        <label class="upload-box" for="resume-file">
+          <span class="upload-icon">↑</span>
+          <strong>Choose a resume file</strong>
+          <span>PDF or DOCX · Maximum 10 MB</span>
+          <span id="file-name" class="file-name">No file selected</span>
+        </label>
+        <input id="resume-file" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+
+        <button class="primary-btn" type="submit" id="analyze-btn">
+          Analyze resume <span>→</span>
+        </button>
+      </form>
+
+      <div id="analysis-status" class="status-message" role="status" aria-live="polite"></div>
+      <section id="results" class="results hidden" aria-live="polite"></section>
+    </section>
+
+    <section id="hr-panel" class="panel hidden">
+      <div class="section-heading">
+        <div>
+          <div class="step-label">02 / RECRUITER WORKSPACE</div>
+          <h2>Create a job posting</h2>
+          <p>Define the role and the skills candidates should have.</p>
+        </div>
+        <span class="heading-icon">＋</span>
+      </div>
+
+      <form id="job-form">
+        <label for="job-title">Job title *</label>
+        <input id="job-title" name="title" placeholder="e.g. Junior Data Analyst" required maxlength="150">
+
+        <label for="job-description">Job description</label>
+        <textarea id="job-description" name="description" rows="4" placeholder="Describe the responsibilities of this role…"></textarea>
+
+        <label for="required-skills">Required skills *</label>
+        <textarea id="required-skills" name="required_skills" rows="4" required placeholder="Python, SQL, Excel, Power BI&#10;Separate skills with commas or new lines"></textarea>
+        <span class="helper">Enter each skill separated by a comma or a new line.</span>
+
+        <div class="two-columns">
+          <div>
+            <label for="job-education">Education requirement</label>
+            <input id="job-education" name="education" placeholder="e.g. Bachelor's degree">
+          </div>
+          <div>
+            <label for="job-experience">Experience requirement</label>
+            <input id="job-experience" name="experience" placeholder="e.g. 0–2 years">
+          </div>
+        </div>
+
+        <button class="primary-btn" type="submit" id="post-job-btn">Publish job <span>→</span></button>
+      </form>
+      <div id="job-status" class="status-message" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="bottom-note">
+      <span>ⓘ</span>
+      <p>Career Lens provides skills-based guidance, not a hiring decision. Resume text is processed for this request and is not saved by the analysis endpoint.</p>
+    </section>
+  </main>
+
+  <footer>Career Lens · Resume & Career Match Analyzer</footer>
+  <script src="/script.js" defer></script>
+</body>
+</html>
